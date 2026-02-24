@@ -1,35 +1,46 @@
 #include <iostream>
-#include <string>
 using namespace std;
 
 class Persona {
-protected: // El símbolo # en el diagrama
-    string cui;
-    string nombres;
-    string apellidos;
-    string direccion;
-    int telefono;
-    string fecha_nacimiento;
-    bool genero;
+    // Atributos protegidos: Accesibles para esta clase y sus clases hijas
+    protected: 
+        string cui, nombres, apellidos, direccion, fecha_nacimiento;
+        int telefono;
+        bool genero;
 
-public: // El símbolo + en el diagrama
-    Persona() {}
-    Persona(string _cui, string nom, string ape, string dir, int tel, string fn, bool gen) {
-        cui = _cui;
-        nombres = nom;
-        apellidos = ape;
-        direccion = dir;
-        telefono = tel;
-        fecha_nacimiento = fn;
-        genero = gen;
-    }
+    // Métodos
+    public:
+        // Constructor vacío
+        Persona() {
+        }
 
-    // Métodos solicitados en el diagrama
-    void crear() { cout << "Registro Creado." << endl; }
-    void leer() { 
-        cout << "CUI: " << cui << " | Nombre: " << nombres << " " << apellidos << endl;
-    }
-    void actualizar() { cout << "Registro Actualizado." << endl; }
-    void borrar() { cout << "Registro Borrado." << endl; }
+        // Constructor con parámetros para inicializar todos los datos
+        Persona(string nom, string ape, string dir, int tel, string f_nac, string _cui, bool gen) {
+            nombres = nom;
+            apellidos = ape;
+            direccion = dir;
+            telefono = tel;
+            fecha_nacimiento = f_nac;
+            cui = _cui;
+            genero = gen;
+        }
+
+        // Métodos CRUD definidos en el diagrama
+        void crear() {
+            cout << "Registro creado en la base de datos." << endl;
+        }
+
+        void leer() {
+            cout << "Leyendo datos generales..." << endl;
+        }
+
+        void actualizar() {
+            cout << "Registro actualizado exitosamente." << endl;
+        }
+
+        void borrar() {
+            cout << "Registro eliminado." << endl;
+        }
 };
+
 
